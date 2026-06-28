@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +7,7 @@
   <title>Cornerstone Detailing | Sacramento CA</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #000;
@@ -14,8 +15,7 @@
       overflow: hidden;
       height: 100vh;
     }
-
-    /* VIDEO BG */
+ 
     .bg-video {
       position: fixed; inset: 0; z-index: 0;
       width: 100%; height: 100%;
@@ -28,8 +28,7 @@
       position: fixed; inset: 0; z-index: 1;
       background: rgba(0,0,0,0.55);
     }
-
-    /* MAIN LAYOUT */
+ 
     .page {
       position: relative; z-index: 2;
       height: 100vh;
@@ -39,24 +38,16 @@
       justify-content: space-between;
       padding: 32px 0 0;
     }
-
+ 
     /* LOGO */
     .logo-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 6px;
-    }
-    .logo-box {
-      width: 64px; height: 64px;
-      border: 2px solid #C9A84C;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 22px; color: #C9A84C;
-      letter-spacing: -1px;
     }
     .logo-name {
       font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
       text-transform: uppercase; color: rgba(255,255,255,0.8);
     }
-
+ 
     /* PROGRESS BAR */
     .progress-bar {
       width: 90%; height: 2px;
@@ -67,11 +58,11 @@
     }
     .progress-fill {
       height: 100%;
-      background: #C9A84C;
+      background: #1A3EBF;
       border-radius: 2px;
       transition: width 0.1s linear;
     }
-
+ 
     /* CAROUSEL */
     .carousel {
       flex: 1;
@@ -87,16 +78,18 @@
     .carousel-inner.hidden {
       opacity: 0; transform: scale(0.95);
     }
-    .service-icon {
-      font-size: 100px;
-      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
+    .service-icon-wrap {
+      width: 120px; height: 120px;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7));
     }
     .service-name {
       font-size: clamp(22px, 6vw, 32px);
       font-weight: 700;
-      color: #C9A84C;
+      color: #ffffff;
       line-height: 1.2;
       text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .service-desc {
       font-size: 13px;
@@ -105,7 +98,7 @@
       line-height: 1.5;
       text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
-
+ 
     /* ARROWS */
     .arrow {
       position: absolute; top: 50%;
@@ -121,10 +114,10 @@
       user-select: none;
       transition: background 0.2s;
     }
-    .arrow:hover { background: rgba(255,255,255,0.25); }
+    .arrow:hover { background: rgba(26,62,191,0.5); }
     .arrow.left { left: 12px; }
     .arrow.right { right: 12px; }
-
+ 
     /* DOTS */
     .dots {
       display: flex; gap: 8px; justify-content: center;
@@ -134,9 +127,9 @@
       background: rgba(255,255,255,0.3);
       cursor: pointer; transition: background 0.3s, transform 0.3s;
     }
-    .dot.active { background: #C9A84C; transform: scale(1.5); }
-
-    /* BOTTOM ACTIONS */
+    .dot.active { background: #1A3EBF; transform: scale(1.5); }
+ 
+    /* BOTTOM */
     .bottom {
       width: 100%;
       background: #fff;
@@ -152,7 +145,7 @@
       transition: background 0.15s;
     }
     .action-btn:last-child { border-bottom: none; }
-    .action-btn:hover { background: #f5f5f5; }
+    .action-btn:hover { background: #f0f4ff; }
     .action-left {
       display: flex; align-items: center; gap: 14px;
     }
@@ -162,12 +155,12 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 20px;
     }
-    .action-icon.call { background: #000; }
-    .action-icon.sms { background: #1A3EBF; }
+    .action-icon.call { background: #1A3EBF; }
+    .action-icon.sms { background: #0F2680; }
     .action-label { font-size: 11px; color: #999; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
     .action-value { font-size: 15px; font-weight: 700; color: #111; }
-    .action-arrow { font-size: 18px; color: #999; }
-
+    .action-arrow { font-size: 18px; color: #1A3EBF; }
+ 
     /* LANG */
     .lang-toggle {
       position: fixed; top: 20px; right: 16px; z-index: 10;
@@ -183,13 +176,13 @@
       cursor: pointer; border: none;
       background: transparent; color: #aaa;
     }
-    .lang-btn.active { background: #C9A84C; color: #000; }
-
+    .lang-btn.active { background: #1A3EBF; color: #fff; }
+ 
     .en, .es { display: none; }
   </style>
 </head>
 <body>
-
+ 
 <!-- VIDEOS -->
 <video class="bg-video active" id="v0" muted playsinline preload="auto">
   <source src="a1.mp4" type="video/mp4">
@@ -201,46 +194,58 @@
   <source src="a3.mp4" type="video/mp4">
 </video>
 <div class="bg-overlay"></div>
-
+ 
 <!-- LANG -->
 <div class="lang-toggle">
   <button class="lang-btn active" onclick="setLang('en')">EN</button>
   <button class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
-
+ 
 <!-- PAGE -->
 <div class="page">
-
-  <!-- LOGO -->
+ 
+  <!-- LOGO SVG igual a la tarjeta -->
   <div class="logo-wrap">
-    <div class="logo-box">CD</div>
+    <svg width="80" height="72" viewBox="0 0 80 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- C grande -->
+      <text x="2" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="#1A3EBF" opacity="0.35">C</text>
+      <!-- D encima -->
+      <text x="28" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="white">D</text>
+      <!-- C encima del D -->
+      <text x="2" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="white" clip-path="url(#clipC)">C</text>
+      <clipPath id="clipC">
+        <rect x="0" y="0" width="42" height="72"/>
+      </clipPath>
+    </svg>
     <div class="logo-name">Cornerstone Detailing</div>
   </div>
-
+ 
   <!-- PROGRESS -->
   <div class="progress-bar">
     <div class="progress-fill" id="progressFill" style="width:0%"></div>
   </div>
-
+ 
   <!-- CAROUSEL -->
   <div class="carousel">
     <div class="arrow left" onclick="prevSlide()">&#8249;</div>
     <div class="carousel-inner" id="carouselInner">
-      <div class="service-icon" id="svcIcon"></div>
+      <div class="service-icon-wrap" id="svcIcon"></div>
       <div class="service-name" id="svcName"></div>
       <div class="service-desc" id="svcDesc"></div>
     </div>
     <div class="arrow right" onclick="nextSlide()">&#8250;</div>
   </div>
-
+ 
   <!-- DOTS -->
   <div class="dots" id="dots"></div>
-
+ 
   <!-- BOTTOM -->
   <div class="bottom">
     <a href="tel:9166554414" class="action-btn">
       <div class="action-left">
-        <div class="action-icon call">📞</div>
+        <div class="action-icon call">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
         <div>
           <div class="action-label"><span class="en">Call for a Quote</span><span class="es">Llama para un Precio</span></div>
           <div class="action-value">(916) 655-4414</div>
@@ -250,7 +255,9 @@
     </a>
     <a href="sms:9166554414" class="action-btn">
       <div class="action-left">
-        <div class="action-icon sms">💬</div>
+        <div class="action-icon sms">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </div>
         <div>
           <div class="action-label"><span class="en">Text Us</span><span class="es">Escríbenos</span></div>
           <div class="action-value"><span class="en">Send a Message</span><span class="es">Manda un Mensaje</span></div>
@@ -259,16 +266,67 @@
       <div class="action-arrow">›</div>
     </a>
   </div>
-
+ 
 </div>
-
+ 
 <script>
-  // VIDEOS EN LOOP
+  // SVG icons para cada servicio
+  const iconos = {
+    ceramic: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
+      <path d="M60 20 L90 40 L90 75 C90 90 75 100 60 105 C45 100 30 90 30 75 L30 40 Z" fill="#1A3EBF" opacity="0.8"/>
+      <path d="M60 32 L80 46 L80 73 C80 84 71 92 60 96 C49 92 40 84 40 73 L40 46 Z" fill="white" opacity="0.2"/>
+      <path d="M48 62 L56 70 L74 52" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    interior: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
+      <!-- Car interior / seat shape -->
+      <rect x="28" y="45" width="64" height="38" rx="8" fill="#1A3EBF" opacity="0.8"/>
+      <rect x="35" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/>
+      <rect x="63" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/>
+      <rect x="28" y="78" width="64" height="8" rx="4" fill="#0F2680"/>
+      <!-- steering wheel hint -->
+      <circle cx="60" cy="38" r="10" stroke="white" stroke-width="3" fill="none" opacity="0.6"/>
+      <line x1="60" y1="28" x2="60" y2="48" stroke="white" stroke-width="2" opacity="0.6"/>
+    </svg>`,
+    polish: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
+      <!-- Orbital polisher -->
+      <circle cx="60" cy="62" r="24" fill="#1A3EBF" opacity="0.8"/>
+      <circle cx="60" cy="62" r="16" fill="white" opacity="0.15"/>
+      <circle cx="60" cy="62" r="6" fill="white" opacity="0.8"/>
+      <!-- Handle -->
+      <rect x="56" y="30" width="8" height="22" rx="4" fill="#1A3EBF"/>
+      <!-- Shine lines -->
+      <line x1="88" y1="34" x2="94" y2="28" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <line x1="92" y1="44" x2="100" y2="42" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+      <line x1="84" y1="26" x2="84" y2="18" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    </svg>`
+  };
+ 
+  const servicios = {
+    en: [
+      { icon: iconos.ceramic, name: 'Ceramic Coating', desc: 'Long-lasting protection that repels water, dirt & UV damage. Your paint stays pristine for years.' },
+      { icon: iconos.interior, name: 'Interior Detailing', desc: 'Deep cleaning of every surface — seats, carpets, dashboard. Odor elimination included.' },
+      { icon: iconos.polish, name: 'Paint Polishing', desc: 'Remove swirl marks, scratches & oxidation. Restore the factory shine your car deserves.' },
+    ],
+    es: [
+      { icon: iconos.ceramic, name: 'Ceramic Coating', desc: 'Protección duradera que repele agua, suciedad y rayos UV. Tu pintura impecable por años.' },
+      { icon: iconos.interior, name: 'Detallado Interior', desc: 'Limpieza profunda de cada superficie — asientos, tapetes, tablero. Eliminación de olores incluida.' },
+      { icon: iconos.polish, name: 'Pulido de Pintura', desc: 'Elimina rayones y oxidación. Devuelve el brillo de fábrica que tu auto merece.' },
+    ]
+  };
+ 
+  let lang = 'en';
+  let current = 0;
+  let timer;
+  let progress = 0;
+  const INTERVAL = 4000;
+ 
+  // VIDEOS
   const videos = document.querySelectorAll('.bg-video');
   let currentVideo = 0;
-
   videos[0].play();
-
   videos.forEach((video, i) => {
     video.addEventListener('ended', () => {
       video.classList.remove('active');
@@ -277,27 +335,7 @@
       videos[currentVideo].play();
     });
   });
-
-  // SERVICIOS
-  const servicios = {
-    en: [
-      { icon: '🛡️', name: 'Ceramic Coating', desc: 'Long-lasting protection that repels water, dirt & UV damage. Your paint stays pristine for years.' },
-      { icon: '🪑', name: 'Interior Detailing', desc: 'Deep cleaning of every surface — seats, carpets, dashboard. Odor elimination included.' },
-      { icon: '✨', name: 'Paint Polishing', desc: 'Remove swirl marks, scratches & oxidation. Restore the factory shine your car deserves.' },
-    ],
-    es: [
-      { icon: '🛡️', name: 'Ceramic Coating', desc: 'Protección duradera que repele agua, suciedad y rayos UV. Tu pintura impecable por años.' },
-      { icon: '🪑', name: 'Detallado Interior', desc: 'Limpieza profunda de cada superficie — asientos, tapetes, tablero. Eliminación de olores incluida.' },
-      { icon: '✨', name: 'Pulido de Pintura', desc: 'Elimina rayones y oxidación. Devuelve el brillo de fábrica que tu auto merece.' },
-    ]
-  };
-
-  let lang = 'en';
-  let current = 0;
-  let timer;
-  let progress = 0;
-  const INTERVAL = 4000;
-
+ 
   function setLang(l) {
     lang = l;
     document.querySelectorAll('.en').forEach(el => el.style.display = l === 'en' ? 'inline' : 'none');
@@ -307,7 +345,7 @@
     });
     renderSlide(current, false);
   }
-
+ 
   function buildDots() {
     const container = document.getElementById('dots');
     container.innerHTML = '';
@@ -318,57 +356,57 @@
       container.appendChild(d);
     });
   }
-
+ 
   function updateDots() {
     document.querySelectorAll('.dot').forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
   }
-
+ 
   function renderSlide(index, animate = true) {
     const inner = document.getElementById('carouselInner');
     const data = servicios[lang][index];
     if (animate) {
       inner.classList.add('hidden');
       setTimeout(() => {
-        document.getElementById('svcIcon').textContent = data.icon;
+        document.getElementById('svcIcon').innerHTML = data.icon;
         document.getElementById('svcName').textContent = data.name;
         document.getElementById('svcDesc').textContent = data.desc;
         inner.classList.remove('hidden');
       }, 400);
     } else {
-      document.getElementById('svcIcon').textContent = data.icon;
+      document.getElementById('svcIcon').innerHTML = data.icon;
       document.getElementById('svcName').textContent = data.name;
       document.getElementById('svcDesc').textContent = data.desc;
     }
     updateDots();
   }
-
+ 
   function goSlide(index) {
     current = index;
     resetTimer();
     renderSlide(current);
   }
-
+ 
   function nextSlide() {
     current = (current + 1) % servicios.en.length;
     resetTimer();
     renderSlide(current);
   }
-
+ 
   function prevSlide() {
     current = (current - 1 + servicios.en.length) % servicios.en.length;
     resetTimer();
     renderSlide(current);
   }
-
+ 
   function resetTimer() {
     clearInterval(timer);
     progress = 0;
     document.getElementById('progressFill').style.width = '0%';
     startTimer();
   }
-
+ 
   function startTimer() {
     const step = 100 / (INTERVAL / 50);
     timer = setInterval(() => {
@@ -381,8 +419,7 @@
       }
     }, 50);
   }
-
-  // INIT
+ 
   buildDots();
   renderSlide(0, false);
   setLang('en');
@@ -390,3 +427,4 @@
 </script>
 </body>
 </html>
+ 
