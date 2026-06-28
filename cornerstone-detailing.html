@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cornerstone Detailing | Sacramento CA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1A3EBF;
+      --blue-dk: #0F2680;
+      --blue-lt: #2B56E0;
+      --steel:   #C8D4F5;
+      --white:   #FFFFFF;
+      --off:     #F2F4FB;
+      --dark:    #0A0D1A;
+      --gray:    #5A637A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 32px;
+      background: rgba(10,13,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .cd-mark {
+      width: 44px; height: 44px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 20px; letter-spacing: -1px;
+      color: var(--white);
+    }
+    .nav-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 17px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white);
+    }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600; font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 120px 32px 64px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0A0D1A 0%, #0F2680 60%, #1A3EBF 100%);
+    }
+    .hero-shine {
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(43,86,224,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--steel);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 10vw, 100px);
+      line-height: 0.92;
+      text-transform: uppercase;
+      max-width: 700px;
+    }
+    .hero h1 span { color: var(--blue-lt); }
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 17px; color: var(--steel);
+      max-width: 440px; line-height: 1.6;
+    }
+    .hero-sub em { color: var(--white); font-style: normal; font-weight: 600; }
+    .hero-actions {
+      margin-top: 40px;
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--blue-lt); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* ── TRUST BAR ── */
+    .trust {
+      background: var(--blue-dk);
+      padding: 20px 32px;
+      display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--steel);
+    }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue-lt); }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 32px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--blue-lt);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(32px, 5vw, 52px);
+      text-transform: uppercase; line-height: 1.05;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--dark); }
+    .services-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .service-card {
+      background: #0E1220;
+      padding: 40px 32px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { background: #141828; border-color: rgba(43,86,224,0.3); }
+    .service-icon {
+      font-size: 32px; margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 26px; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .service-name-es {
+      font-size: 13px; color: var(--blue-lt); font-weight: 600;
+      letter-spacing: 0.05em; margin-bottom: 14px;
+    }
+    .service-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* ── WHY ── */
+    .why { background: #0C1022; }
+    .why-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+    .why-item {}
+    .why-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 56px; color: var(--blue);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .why-label {
+      font-weight: 600; font-size: 15px; margin-bottom: 6px;
+    }
+    .why-sub { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: linear-gradient(135deg, #0F2680 0%, #1A3EBF 100%);
+      text-align: center;
+    }
+    .contact .section-title { margin-top: 12px; }
+    .contact-sub {
+      margin-top: 16px; font-size: 16px; color: var(--steel);
+    }
+    .contact-actions {
+      margin-top: 40px;
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 28px 36px;
+      text-decoration: none; color: var(--white);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      min-width: 180px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
+    .contact-card-icon { font-size: 28px; }
+    .contact-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); }
+    .contact-card-value { font-weight: 700; font-size: 17px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #06080F;
+      padding: 32px;
+      text-align: center;
+      font-size: 13px; color: var(--gray);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer strong { color: var(--white); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .hero { padding: 100px 20px 48px; }
+      section { padding: 60px 20px; }
+      .trust { gap: 20px; padding: 16px 20px; }
+      .contact-actions { flex-direction: column; align-items: center; }
+    }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex; gap: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 3px;
+      margin-right: 16px;
+    }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 4px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+      cursor: pointer; border: none;
+      background: transparent; color: var(--steel);
+      transition: all 0.15s;
+    }
+    .lang-btn.active { background: var(--blue); color: var(--white); }
+    .nav-right { display: flex; align-items: center; }
+
+    [data-en], [data-es] { display: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="cd-mark">CD</div>
+    <div class="nav-name">Cornerstone Detailing</div>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+    <a href="tel:9166554414" class="nav-cta">
+      <span data-en>(916) 655-4414</span>
+      <span data-es>(916) 655-4414</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-shine"></div>
+  <p class="hero-label">
+    <span data-en>Sacramento's Premier Auto Detailing</span>
+    <span data-es>Detallado Profesional en Sacramento</span>
+  </p>
+  <h1>
+    <span data-en>Your Car.<br/><span>Flawless.</span></span>
+    <span data-es>Tu Auto.<br/><span>Impecable.</span></span>
+  </h1>
+  <p class="hero-sub">
+    <span data-en>Ceramic coating, interior detailing & polishing — <em>by Gerardo Peña Vargas.</em> We come to you.</span>
+    <span data-es>Ceramic coating, detallado interior y pulido — <em>por Gerardo Peña Vargas.</em> Vamos a donde estás.</span>
+  </p>
+  <div class="hero-actions">
+    <a href="tel:9166554414" class="btn-primary">
+      📞 <span data-en>Call for a Quote</span><span data-es>Llama para un Precio</span>
+    </a>
+    <a href="#services" class="btn-outline">
+      <span data-en>See Services</span><span data-es>Ver Servicios</span>
+    </a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item"><div class="trust-dot"></div><span data-en>Mobile Service</span><span data-es>Servicio a Domicilio</span></div>
+  <div class="trust-item"><div class="trust-dot"></div><span data-en>Ceramic Coating Specialists</span><span data-es>Especialistas en Ceramic Coating</span></div>
+  <div class="trust-item"><div class="trust-dot"></div><span data-en>By Gerardo Peña Vargas</span><span data-es>Por Gerardo Peña Vargas</span></div>
+  <div class="trust-item"><div class="trust-dot"></div><span data-en>Call for Booking</span><span data-es>Llama para Agendar</span></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label"><span data-en>What We Do</span><span data-es>Nuestros Servicios</span></p>
+  <h2 class="section-title"><span data-en>Services</span><span data-es>Servicios</span></h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <div class="service-name">Ceramic Coating</div>
+      <div class="service-name-es">Ceramic Coating</div>
+      <p class="service-desc">
+        <span data-en>Long-lasting protection that repels water, dirt, and UV damage. Your paint stays newer, longer.</span>
+        <span data-es>Protección duradera que repele agua, suciedad y rayos UV. Tu pintura se mantiene como nueva por más tiempo.</span>
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🪑</div>
+      <div class="service-name">Interior Detailing</div>
+      <div class="service-name-es">Detallado Interior</div>
+      <p class="service-desc">
+        <span data-en>Deep cleaning of every surface — seats, carpets, dashboard, and more. Odor removal included.</span>
+        <span data-es>Limpieza profunda de cada superficie — asientos, tapetes, tablero y más. Eliminación de olores incluida.</span>
+      </p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Polishing</div>
+      <div class="service-name-es">Pulido</div>
+      <p class="service-desc">
+        <span data-en>Remove swirl marks, scratches, and oxidation. Restore the shine your car had when it was new.</span>
+        <span data-es>Elimina rayones, marcas de espiral y oxidación. Devuelve el brillo que tenía tu auto cuando era nuevo.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <p class="section-label"><span data-en>Why Cornerstone</span><span data-es>Por Qué Cornerstone</span></p>
+  <h2 class="section-title"><span data-en>The Difference</span><span data-es>La Diferencia</span></h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">100%</div>
+      <div class="why-label"><span data-en>Mobile Service</span><span data-es>Servicio a Domicilio</span></div>
+      <div class="why-sub"><span data-en>We come to your home or office. No need to drop off your car.</span><span data-es>Vamos a tu casa u oficina. No necesitas dejar tu carro.</span></div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">3+</div>
+      <div class="why-label"><span data-en>Specialized Services</span><span data-es>Servicios Especializados</span></div>
+      <div class="why-sub"><span data-en>Ceramic coating, interior cleaning, and paint polishing — all in one place.</span><span data-es>Ceramic coating, limpieza interior y pulido de pintura — todo en un solo lugar.</span></div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">1</div>
+      <div class="why-label"><span data-en>Expert Behind Every Job</span><span data-es>Experto Detrás de Cada Trabajo</span></div>
+      <div class="why-sub"><span data-en>Gerardo Peña Vargas handles every detail personally. No subcontractors.</span><span data-es>Gerardo Peña Vargas atiende cada trabajo personalmente. Sin subcontratistas.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label"><span data-en>Ready to Book?</span><span data-es>¿Listo para Agendar?</span></p>
+  <h2 class="section-title"><span data-en>Get in Touch</span><span data-es>Contáctanos</span></h2>
+  <p class="contact-sub">
+    <span data-en>Call or text for a free quote. We'll come to you.</span>
+    <span data-es>Llama o manda un mensaje para un presupuesto gratis. Nosotros vamos a donde estás.</span>
+  </p>
+  <div class="contact-actions">
+    <a href="tel:9166554414" class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label"><span data-en>Call / Text</span><span data-es>Llama / Mensaje</span></div>
+      <div class="contact-card-value">(916) 655-4414</div>
+    </a>
+    <a href="sms:9166554414" class="contact-card">
+      <div class="contact-card-icon">💬</div>
+      <div class="contact-card-label"><span data-en>Text Us</span><span data-es>Escríbenos</span></div>
+      <div class="contact-card-value"><span data-en>Send a Message</span><span data-es>Enviar Mensaje</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Cornerstone Detailing</strong> &nbsp;·&nbsp; By Gerardo Peña Vargas &nbsp;·&nbsp; (916) 655-4414
+  <br/><br/>
+  <span data-en>© 2026 Cornerstone Detailing. Sacramento, CA.</span>
+  <span data-es>© 2026 Cornerstone Detailing. Sacramento, CA.</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.style.display = lang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('[data-es]').forEach(el => {
+      el.style.display = lang === 'es' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+  }
+  // Init
+  setLang('en');
+</script>
+
+</body>
+</html>
