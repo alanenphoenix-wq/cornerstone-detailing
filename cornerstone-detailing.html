@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,10 +11,11 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #000;
       color: #fff;
-      overflow: hidden;
-      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
  
+    /* VIDEOS */
     .bg-video {
       position: fixed; inset: 0; z-index: 0;
       width: 100%; height: 100%;
@@ -27,8 +27,10 @@
     .bg-overlay {
       position: fixed; inset: 0; z-index: 1;
       background: rgba(0,0,0,0.55);
+      pointer-events: none;
     }
  
+    /* HERO */
     .page {
       position: relative; z-index: 2;
       height: 100vh;
@@ -39,7 +41,6 @@
       padding: 32px 0 0;
     }
  
-    /* LOGO */
     .logo-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 6px;
     }
@@ -48,7 +49,6 @@
       text-transform: uppercase; color: rgba(255,255,255,0.8);
     }
  
-    /* PROGRESS BAR */
     .progress-bar {
       width: 90%; height: 2px;
       background: rgba(255,255,255,0.15);
@@ -63,7 +63,6 @@
       transition: width 0.1s linear;
     }
  
-    /* CAROUSEL */
     .carousel {
       flex: 1;
       display: flex; align-items: center; justify-content: center;
@@ -75,53 +74,33 @@
       gap: 16px; text-align: center;
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
-    .carousel-inner.hidden {
-      opacity: 0; transform: scale(0.95);
-    }
-    .service-icon-wrap {
-      width: 120px; height: 120px;
-      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7));
-    }
+    .carousel-inner.hidden { opacity: 0; transform: scale(0.95); }
+    .service-icon-wrap { width: 120px; height: 120px; filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7)); }
     .service-name {
-      font-size: clamp(22px, 6vw, 32px);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.2;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-size: clamp(22px, 6vw, 32px); font-weight: 700; color: #fff;
+      line-height: 1.2; text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+      letter-spacing: 0.05em; text-transform: uppercase;
     }
     .service-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      max-width: 280px;
-      line-height: 1.5;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+      font-size: 13px; color: rgba(255,255,255,0.75);
+      max-width: 280px; line-height: 1.5; text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
  
-    /* ARROWS */
     .arrow {
-      position: absolute; top: 50%;
-      transform: translateY(-50%);
+      position: absolute; top: 50%; transform: translateY(-50%);
       width: 40px; height: 40px;
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; color: #fff;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      user-select: none;
-      transition: background 0.2s;
+      font-size: 18px; color: #fff; cursor: pointer;
+      backdrop-filter: blur(4px); user-select: none; transition: background 0.2s;
     }
     .arrow:hover { background: rgba(26,62,191,0.5); }
     .arrow.left { left: 12px; }
     .arrow.right { right: 12px; }
  
-    /* DOTS */
-    .dots {
-      display: flex; gap: 8px; justify-content: center;
-    }
+    .dots { display: flex; gap: 8px; justify-content: center; }
     .dot {
       width: 6px; height: 6px; border-radius: 50%;
       background: rgba(255,255,255,0.3);
@@ -129,31 +108,18 @@
     }
     .dot.active { background: #1A3EBF; transform: scale(1.5); }
  
-    /* BOTTOM */
-    .bottom {
-      width: 100%;
-      background: #fff;
-      border-radius: 20px 20px 0 0;
-      overflow: hidden;
-    }
+    .bottom { width: 100%; background: #fff; border-radius: 20px 20px 0 0; overflow: hidden; }
     .action-btn {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 24px;
-      border-bottom: 1px solid #eee;
-      text-decoration: none;
-      color: #111;
-      transition: background 0.15s;
+      padding: 18px 24px; border-bottom: 1px solid #eee;
+      text-decoration: none; color: #111; transition: background 0.15s;
     }
     .action-btn:last-child { border-bottom: none; }
     .action-btn:hover { background: #f0f4ff; }
-    .action-left {
-      display: flex; align-items: center; gap: 14px;
-    }
+    .action-left { display: flex; align-items: center; gap: 14px; }
     .action-icon {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
     }
     .action-icon.call { background: #1A3EBF; }
     .action-icon.sms { background: #0F2680; }
@@ -161,9 +127,8 @@
     .action-value { font-size: 15px; font-weight: 700; color: #111; }
     .action-arrow { font-size: 18px; color: #1A3EBF; }
  
-    /* LANG */
     .lang-toggle {
-      position: fixed; top: 20px; right: 16px; z-index: 10;
+      position: fixed; top: 20px; right: 16px; z-index: 100;
       display: flex; gap: 3px;
       background: rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.15);
@@ -177,184 +142,77 @@
       background: transparent; color: #aaa;
     }
     .lang-btn.active { background: #1A3EBF; color: #fff; }
- 
     .en, .es { display: none; }
-    <style id="ba-styles">
-  .scroll-section {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
-    scroll-snap-type: y mandatory;
-  }
  
-  .hero-snap {
-    scroll-snap-align: start;
-    height: 100vh;
-    flex-shrink: 0;
-  }
+    /* BEFORE/AFTER */
+    .ba-section {
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      background: #080808;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 24px;
+    }
+    .ba-header { text-align: center; margin-bottom: 40px; }
+    .ba-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: #1A3EBF; margin-bottom: 10px;
+      transform: translateY(40px); opacity: 0;
+      transition: all 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .ba-title {
+      font-size: clamp(28px, 7vw, 52px); font-weight: 900;
+      text-transform: uppercase; color: #fff; line-height: 1;
+      transform: translateY(50px); opacity: 0;
+      transition: all 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;
+    }
+    .ba-tag.visible, .ba-title.visible { transform: translateY(0); opacity: 1; }
  
-  .ba-section {
-    scroll-snap-align: start;
-    min-height: 100vh;
-    background: #080808;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
-  }
- 
-  .ba-header {
-    text-align: center;
-    margin-bottom: 40px;
-    overflow: hidden;
-  }
- 
-  .ba-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #1A3EBF;
-    margin-bottom: 10px;
-    transform: translateY(40px);
-    opacity: 0;
-    transition: all 0.7s cubic-bezier(0.22,1,0.36,1);
-  }
- 
-  .ba-title {
-    font-size: clamp(28px, 7vw, 52px);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #fff;
-    line-height: 1;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;
-  }
- 
-  .ba-tag.visible,
-  .ba-title.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
- 
-  .ba-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 680px;
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: col-resize;
-    user-select: none;
-    transform: scale(0.9);
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s;
-  }
- 
-  .ba-wrap.visible {
-    transform: scale(1);
-    opacity: 1;
-  }
- 
-  .ba-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
- 
-  .ba-before-wrap {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    width: 50%;
-  }
- 
-  .ba-before-wrap img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    min-width: 200%;
-  }
- 
-  .ba-divider {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 50%;
-    width: 3px;
-    background: #fff;
-    z-index: 10;
-    transform: translateX(-50%);
-  }
- 
-  .ba-handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: #1A3EBF;
-    border: 3px solid #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 900;
-    font-size: 16px;
-    z-index: 11;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.5);
-  }
- 
-  .ba-labels {
-    position: absolute;
-    top: 14px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    z-index: 12;
-    pointer-events: none;
-  }
- 
-  .ba-label {
-    padding: 4px 14px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
- 
-  .ba-label.before {
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-  }
- 
-  .ba-label.after {
-    background: #1A3EBF;
-    color: #fff;
-  }
- 
-  .ba-hint {
-    margin-top: 16px;
-    font-size: 12px;
-    color: #555;
-    letter-spacing: 0.05em;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.5s;
-  }
- 
-  .ba-hint.visible { opacity: 1; }
-
+    .ba-wrap {
+      position: relative; width: 100%; max-width: 680px; height: 300px;
+      border-radius: 12px; overflow: hidden;
+      cursor: col-resize; user-select: none;
+      transform: scale(0.9); opacity: 0;
+      transition: all 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s;
+    }
+    .ba-wrap.visible { transform: scale(1); opacity: 1; }
+    .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ba-before-wrap { position: absolute; inset: 0; overflow: hidden; width: 50%; }
+    .ba-before-wrap img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover; min-width: 200%;
+    }
+    .ba-divider {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 3px; background: #fff; z-index: 10; transform: translateX(-50%);
+    }
+    .ba-handle {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #1A3EBF; border: 3px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 900; font-size: 16px;
+      z-index: 11; box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    .ba-labels {
+      position: absolute; top: 14px; width: 100%;
+      display: flex; justify-content: space-between;
+      padding: 0 16px; z-index: 12; pointer-events: none;
+    }
+    .ba-label {
+      padding: 4px 14px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .ba-label.before { background: rgba(0,0,0,0.6); color: #fff; }
+    .ba-label.after { background: #1A3EBF; color: #fff; }
+    .ba-hint {
+      margin-top: 16px; font-size: 12px; color: #555; letter-spacing: 0.05em;
+      opacity: 0; transition: opacity 0.5s ease 0.5s;
+    }
+    .ba-hint.visible { opacity: 1; }
   </style>
 </head>
-  
 <body>
  
 <!-- VIDEOS -->
@@ -375,31 +233,22 @@
   <button class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
  
-<!-- PAGE -->
+<!-- HERO -->
 <div class="page">
- 
-  <!-- LOGO SVG igual a la tarjeta -->
   <div class="logo-wrap">
     <svg width="80" height="72" viewBox="0 0 80 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- C grande -->
       <text x="2" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="#1A3EBF" opacity="0.35">C</text>
-      <!-- D encima -->
       <text x="28" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="white">D</text>
-      <!-- C encima del D -->
       <text x="2" y="62" font-family="Arial Black, Arial" font-weight="900" font-size="68" fill="white" clip-path="url(#clipC)">C</text>
-      <clipPath id="clipC">
-        <rect x="0" y="0" width="42" height="72"/>
-      </clipPath>
+      <clipPath id="clipC"><rect x="0" y="0" width="42" height="72"/></clipPath>
     </svg>
     <div class="logo-name">Cornerstone Detailing</div>
   </div>
  
-  <!-- PROGRESS -->
   <div class="progress-bar">
     <div class="progress-fill" id="progressFill" style="width:0%"></div>
   </div>
  
-  <!-- CAROUSEL -->
   <div class="carousel">
     <div class="arrow left" onclick="prevSlide()">&#8249;</div>
     <div class="carousel-inner" id="carouselInner">
@@ -410,10 +259,8 @@
     <div class="arrow right" onclick="nextSlide()">&#8250;</div>
   </div>
  
-  <!-- DOTS -->
   <div class="dots" id="dots"></div>
  
-  <!-- BOTTOM -->
   <div class="bottom">
     <a href="tel:9166554414" class="action-btn">
       <div class="action-left">
@@ -440,42 +287,43 @@
       <div class="action-arrow">›</div>
     </a>
   </div>
+</div>
  
+<!-- BEFORE / AFTER -->
+<div class="ba-section" id="baSection">
+  <div class="ba-header">
+    <p class="ba-tag" id="baTag">
+      <span class="en">See The Difference</span>
+      <span class="es">Ve La Diferencia</span>
+    </p>
+    <h2 class="ba-title" id="baTitle">
+      <span class="en">Before & After</span>
+      <span class="es">Antes & Después</span>
+    </h2>
+  </div>
+  <div class="ba-wrap" id="baWrap">
+    <img class="ba-img" src="after.jpg" alt="After detailing">
+    <div class="ba-before-wrap" id="baBeforeWrap">
+      <img src="before.jpg" alt="Before detailing">
+    </div>
+    <div class="ba-divider" id="baDivider"></div>
+    <div class="ba-handle" id="baHandle">⇔</div>
+    <div class="ba-labels">
+      <div class="ba-label before"><span class="en">Before</span><span class="es">Antes</span></div>
+      <div class="ba-label after"><span class="en">After</span><span class="es">Después</span></div>
+    </div>
+  </div>
+  <p class="ba-hint" id="baHint">
+    <span class="en">← Drag to compare →</span>
+    <span class="es">← Arrastra para comparar →</span>
+  </p>
 </div>
  
 <script>
-  // SVG icons para cada servicio
   const iconos = {
-    ceramic: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
-      <path d="M60 20 L90 40 L90 75 C90 90 75 100 60 105 C45 100 30 90 30 75 L30 40 Z" fill="#1A3EBF" opacity="0.8"/>
-      <path d="M60 32 L80 46 L80 73 C80 84 71 92 60 96 C49 92 40 84 40 73 L40 46 Z" fill="white" opacity="0.2"/>
-      <path d="M48 62 L56 70 L74 52" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    interior: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
-      <!-- Car interior / seat shape -->
-      <rect x="28" y="45" width="64" height="38" rx="8" fill="#1A3EBF" opacity="0.8"/>
-      <rect x="35" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/>
-      <rect x="63" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/>
-      <rect x="28" y="78" width="64" height="8" rx="4" fill="#0F2680"/>
-      <!-- steering wheel hint -->
-      <circle cx="60" cy="38" r="10" stroke="white" stroke-width="3" fill="none" opacity="0.6"/>
-      <line x1="60" y1="28" x2="60" y2="48" stroke="white" stroke-width="2" opacity="0.6"/>
-    </svg>`,
-    polish: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/>
-      <!-- Orbital polisher -->
-      <circle cx="60" cy="62" r="24" fill="#1A3EBF" opacity="0.8"/>
-      <circle cx="60" cy="62" r="16" fill="white" opacity="0.15"/>
-      <circle cx="60" cy="62" r="6" fill="white" opacity="0.8"/>
-      <!-- Handle -->
-      <rect x="56" y="30" width="8" height="22" rx="4" fill="#1A3EBF"/>
-      <!-- Shine lines -->
-      <line x1="88" y1="34" x2="94" y2="28" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-      <line x1="92" y1="44" x2="100" y2="42" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
-      <line x1="84" y1="26" x2="84" y2="18" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-    </svg>`
+    ceramic: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/><path d="M60 20 L90 40 L90 75 C90 90 75 100 60 105 C45 100 30 90 30 75 L30 40 Z" fill="#1A3EBF" opacity="0.8"/><path d="M60 32 L80 46 L80 73 C80 84 71 92 60 96 C49 92 40 84 40 73 L40 46 Z" fill="white" opacity="0.2"/><path d="M48 62 L56 70 L74 52" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    interior: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/><rect x="28" y="45" width="64" height="38" rx="8" fill="#1A3EBF" opacity="0.8"/><rect x="35" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/><rect x="63" y="52" width="22" height="24" rx="4" fill="white" opacity="0.9"/><rect x="28" y="78" width="64" height="8" rx="4" fill="#0F2680"/><circle cx="60" cy="38" r="10" stroke="white" stroke-width="3" fill="none" opacity="0.6"/><line x1="60" y1="28" x2="60" y2="48" stroke="white" stroke-width="2" opacity="0.6"/></svg>`,
+    polish: `<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="52" stroke="#1A3EBF" stroke-width="4" fill="rgba(26,62,191,0.15)"/><circle cx="60" cy="62" r="24" fill="#1A3EBF" opacity="0.8"/><circle cx="60" cy="62" r="16" fill="white" opacity="0.15"/><circle cx="60" cy="62" r="6" fill="white" opacity="0.8"/><rect x="56" y="30" width="8" height="22" rx="4" fill="#1A3EBF"/><line x1="88" y1="34" x2="94" y2="28" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/><line x1="92" y1="44" x2="100" y2="42" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="84" y1="26" x2="84" y2="18" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/></svg>`
   };
  
   const servicios = {
@@ -491,22 +339,18 @@
     ]
   };
  
-  let lang = 'en';
-  let current = 0;
-  let timer;
-  let progress = 0;
+  let lang = 'en', current = 0, timer, progress = 0;
   const INTERVAL = 4000;
  
   // VIDEOS
   const videos = document.querySelectorAll('.bg-video');
-  let currentVideo = 0;
   videos[0].play();
   videos.forEach((video, i) => {
     video.addEventListener('ended', () => {
       video.classList.remove('active');
-      currentVideo = (i + 1) % videos.length;
-      videos[currentVideo].classList.add('active');
-      videos[currentVideo].play();
+      const next = (i + 1) % videos.length;
+      videos[next].classList.add('active');
+      videos[next].play();
     });
   });
  
@@ -514,9 +358,7 @@
     lang = l;
     document.querySelectorAll('.en').forEach(el => el.style.display = l === 'en' ? 'inline' : 'none');
     document.querySelectorAll('.es').forEach(el => el.style.display = l === 'es' ? 'inline' : 'none');
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === l.toUpperCase());
-    });
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === l.toUpperCase()));
     renderSlide(current, false);
   }
  
@@ -532,9 +374,7 @@
   }
  
   function updateDots() {
-    document.querySelectorAll('.dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
  
   function renderSlide(index, animate = true) {
@@ -556,27 +396,12 @@
     updateDots();
   }
  
-  function goSlide(index) {
-    current = index;
-    resetTimer();
-    renderSlide(current);
-  }
- 
-  function nextSlide() {
-    current = (current + 1) % servicios.en.length;
-    resetTimer();
-    renderSlide(current);
-  }
- 
-  function prevSlide() {
-    current = (current - 1 + servicios.en.length) % servicios.en.length;
-    resetTimer();
-    renderSlide(current);
-  }
+  function goSlide(i) { current = i; resetTimer(); renderSlide(current); }
+  function nextSlide() { current = (current + 1) % servicios.en.length; resetTimer(); renderSlide(current); }
+  function prevSlide() { current = (current - 1 + servicios.en.length) % servicios.en.length; resetTimer(); renderSlide(current); }
  
   function resetTimer() {
-    clearInterval(timer);
-    progress = 0;
+    clearInterval(timer); progress = 0;
     document.getElementById('progressFill').style.width = '0%';
     startTimer();
   }
@@ -586,20 +411,11 @@
     timer = setInterval(() => {
       progress += step;
       document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
-      if (progress >= 100) {
-        progress = 0;
-        current = (current + 1) % servicios.en.length;
-        renderSlide(current);
-      }
+      if (progress >= 100) { progress = 0; current = (current + 1) % servicios.en.length; renderSlide(current); }
     }, 50);
   }
  
-  buildDots();
-  renderSlide(0, false);
-  setLang('en');
-  startTimer();
-  <script id="ba-script">
-  // BEFORE/AFTER SLIDER
+  // BEFORE/AFTER
   const baWrap = document.getElementById('baWrap');
   const baBeforeWrap = document.getElementById('baBeforeWrap');
   const baDivider = document.getElementById('baDivider');
@@ -632,46 +448,13 @@
       }
     });
   }, { threshold: 0.3 });
+  baObserver.observe(document.getElementById('baSection'));
+ 
+  buildDots();
+  renderSlide(0, false);
+  setLang('en');
+  startTimer();
 </script>
-  <div class="ba-section" id="baSection">
-  <div class="ba-header">
-    <p class="ba-tag" id="baTag">
-      <span class="en">See The Difference</span>
-      <span class="es">Ve La Diferencia</span>
-    </p>
-    <h2 class="ba-title" id="baTitle">
-      <span class="en">Before & After</span>
-      <span class="es">Antes & Después</span>
-    </h2>
-  </div>
- 
-  <div class="ba-wrap" id="baWrap">
-    <!-- AFTER (fondo completo) -->
-    <img class="ba-img" src="after.jpg" alt="After detailing">
- 
-    <!-- BEFORE (lado izquierdo con clip) -->
-    <div class="ba-before-wrap" id="baBeforeWrap">
-      <img src="before.jpg" alt="Before detailing">
-    </div>
- 
-    <div class="ba-divider" id="baDivider"></div>
-    <div class="ba-handle" id="baHandle">⇔</div>
- 
-    <div class="ba-labels">
-      <div class="ba-label before">
-        <span class="en">Before</span><span class="es">Antes</span>
-      </div>
-      <div class="ba-label after">
-        <span class="en">After</span><span class="es">Después</span>
-      </div>
-    </div>
-  </div>
- 
-  <p class="ba-hint" id="baHint">
-    <span class="en">← Drag to compare →</span>
-    <span class="es">← Arrastra para comparar →</span>
-  </p>
-</div>
 </body>
 </html>
  
